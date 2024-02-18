@@ -55,7 +55,7 @@ public class PhotoController {
 //        return photo;}
     public Photo create(@RequestPart ("data")MultipartFile file) throws IOException {
 
-        return photoService.save(file.getOriginalFilename(), file.getBytes());
+        return photoService.save(file.getOriginalFilename(), file.getContentType(),file.getBytes());
     }
 
 }
