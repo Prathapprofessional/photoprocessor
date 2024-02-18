@@ -1,5 +1,7 @@
-package com.example.prat.photoprocessor;
+package com.example.prat.photoprocessor.web;
 
+import com.example.prat.photoprocessor.model.Photo;
+import com.example.prat.photoprocessor.service.PhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +19,7 @@ public class DownloadController {
     }
 
     @GetMapping("/download/{id}")
-    public ResponseEntity<byte[]> download(@PathVariable String id)
+    public ResponseEntity<byte[]> download(@PathVariable Integer id)
     {
         Photo photo = photoService.get(id);
         if(photo == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
